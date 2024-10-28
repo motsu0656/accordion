@@ -13,6 +13,8 @@ h1 {
   border-radius: 5px;
 }
 
+
+
 .accordion-item {
   border-bottom: 1px solid #ccc;
   cursor: pointer;
@@ -38,9 +40,9 @@ h1 {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
   padding: 0 15px;
   background-color: #fff;
+  transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
 .accordion-content p {
@@ -50,7 +52,13 @@ h1 {
 
 .accordion-item.open .accordion-content {
   padding: 15px;
-  max-height: 500px; /* 適切な高さに調整 */
+  max-height: 500px;
+  /* 適切な高さに調整 */
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px; /* コンテンツが表示される高さに調整 */
+  padding: 15px;
 }
 
 .accordion-header.active {
