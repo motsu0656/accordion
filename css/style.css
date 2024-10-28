@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.accordion {
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #f7f7f7;
+  align-items: center;
+}
+
+.accordion-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 15px;
+  background-color: #fff;
+}
+
+.accordion-content p {
+  margin: 0;
+  padding: 15px 0;
+}
+
+.accordion-item.open .accordion-content {
+  padding: 15px;
+  max-height: 500px; /* 適切な高さに調整 */
+}
+
+.accordion-header.active {
+  background-color: #e7e7e7;
+}

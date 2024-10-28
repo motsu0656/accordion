@@ -1,21 +1,22 @@
-document.querySelectorAll('.accordion-toggle').forEach(button => {
-  button.addEventListener('click', () => {
-    const accordionItem = button.parentElement.parentElement;
-    const accordionContent = accordionItem.querySelector('.accordion-content');
+document.querySelectorAll('.accordion-item').forEach(item => {
+  const button = item.querySelector('.accordion-toggle');
+  const header = item.querySelector('.accordion-header');
+  const content = item.querySelector('.accordion-content');
 
-    if (accordionContent.style.display === 'block') {
-      accordionContent.style.display = 'none';
-      button.textContent = '+';
-    } else {
+  header.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
 
-      document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.display = 'none';
-      });
-      document.querySelectorAll('.accordion-toggle').forEach(toggleButton => {
-        toggleButton.textContent = '+';
-      });
+    // すべてのアコーディオンを閉じる
+    document.querySelectorAll('.accordion-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.accordion-content').style.maxHeight = null;
+      i.querySelector('.accordion-toggle').textContent = '+';
+    });
 
-      accordionContent.style.display = 'block';
+    // アコーディオンを開く
+    if (!isOpen) {
+      item.classList.add('open');
+      content.style.maxHeight = content.scrollHeight + 'px'; // 開いたときの高さを設定
       button.textContent = '×';
     }
   });
